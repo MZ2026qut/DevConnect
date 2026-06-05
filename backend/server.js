@@ -24,10 +24,9 @@ console.log("--- DEBUGGING ENV LOAD ---");
 console.log("Current Directory:", __dirname);
 console.log("Parsed Secret Key:", process.env.JWT_SECRET);
 
-if (require.main === module) {
-    connectDB();
-    const PORT = process.env.PORT || 5000;
-    app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
-}
+// FIX: Run database and start server unconditionally so PM2 can bind to it
+connectDB();
+const PORT = process.env.PORT || 80; // Default straight to 80 for production deployment
+app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
 
 module.exports = app;
