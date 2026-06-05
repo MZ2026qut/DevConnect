@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://15.134.218.187', // Your live AWS EC2 backend
+  baseURL: '', // Leaving this blank means it automatically uses current EC2 IP address!
   headers: { 'Content-Type': 'application/json' },
 });
 
