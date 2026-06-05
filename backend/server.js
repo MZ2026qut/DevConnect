@@ -14,6 +14,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// FIX: Add a default root route so hitting the raw IP returns a valid response
+app.get('/', (req, res) => {
+    res.status(200).json({ 
+        message: "DevConnect Backend API is live and running!", 
+        status: "connected" 
+    });
+});
+
 app.use('/api/auth', require('./routes/authRoutes'));
 
 console.log("--- DEBUGGING ENV LOAD ---");
