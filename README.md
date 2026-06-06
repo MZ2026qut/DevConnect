@@ -1,20 +1,28 @@
-# DevConnect - Developer Networking Platform
-DevConnect is a robust, lightweight social networking API built specifically for developers to showcase portfolios, create detailed profiles, and connect with peers in the tech space.
+# DevConnect Project
 
-## Technical Stack
-* **Backend:** Node.js, Express.js framework
-* **Database:** MongoDB Atlas via Mongoose ODM
-* **Authentication:** JSON Web Tokens (JWT) & BcryptJS password encryption
-* **Process Management:** PM2
-* **CI/CD Pipeline:** GitHub Actions
+## Project Overview
+DevConnect is a full-stack web application designed for Meetup of Tech events.
 
-## Core Features
-* Secure user registration and cryptographic login sessions.
-* Comprehensive profile management (skills, experience, education, social handles).
-* Standardized REST API endpoints returning structural JSON data.
+## Project Setup Instructions
+To run this project locally:
+1. Clone the repository: `git clone <repository-url>`
+2. Navigate to the backend: `cd backend`
+3. Install dependencies: `npm install`
+4. Start the server: `npm start`
+5. Navigate to the frontend: `cd ../frontend`
+6. Install dependencies: `npm install`
+7. Start the application: `npm start`
 
-## Installation & Setup
-1. **Clone the Repository:**
-   ```bash
-   git clone [https://github.com/MZ2026qut/DevConnect.git](https://github.com/MZ2026qut/DevConnect.git)
-   cd devconnect-app
+## Deployment Status
+* **CI/CD Pipeline:** Active and validated via GitHub Actions.
+* **Public URL:** http://15.134.218.187 
+* **Deployment Note:** The application is build-ready and integrated into the cloud. Production access is currently managed via institutional security policies (IAM/Security Groups) provided by QUT.
+
+## Access Credentials
+To access the dashboard:
+* **Username:** `admin@devconnect.com`
+* **Password:** `DevConnect2026!`
+
+---
+
+## Technical Pipeline Architecture
