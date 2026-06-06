@@ -1,4 +1,3 @@
-
 # DevConnect - Developer Networking Platform
 
 DevConnect is a robust, lightweight social networking API built specifically for developers to showcase portfolios, create detailed profiles, and connect with peers in the tech space.
