@@ -1,39 +1,30 @@
-name: DevConnect CI/CD Production Pipeline
+name: DevConnect CI Build Pipeline
 
 on:
   push:
-    branches: [ main ] # Triggers automatically every time you push to main
+    branches: [ main ]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository Code
         uses: actions/checkout@v3
 
-      - name: Deploy & Build on AWS EC2 via SSH
-        uses: appleboy/ssh-action@v0.1.10
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v3
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ubuntu
-          key: ${{ secrets.EC2_SSH_KEY }}
-          port: 22
-          script: |
-            echo "Successfully connected to EC2 Instance!"
-            cd /home/ubuntu/devconnect-app
-            
-            echo "Syncing latest changes from GitHub..."
-            git reset --hard HEAD
-            git pull origin main
-            
-            echo "Building React Frontend Application..."
-            cd frontend
-            npm install
-            npm run build
-            
-            echo "Syncing Backend Environment & Restarting Server..."
-            cd ../backend
-            npm install
-            sudo pm2 restart all || sudo pm2 start server.js --name "backend"
-            
-            echo "Deployment Completed Successfully!"
+          node-version: '18'
+
+      - name: Install Frontend Dependencies
+        run: |
+          cd frontend
+          npm install
+
+      - name: Build React Application
+        run: |
+          cd frontend
+          npm run build
+
+      - name: Deployment Note
+        run: echo "Code builds successfully! Automated SSH deployment is restricted by university IAM policies."
